@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=Path(__file__).resolve().parents[3] / ".env",
         env_file_encoding="utf-8",
-        extra="ignore"
+        extra="ignore",
     )
 
     @field_validator("jwt_secret")
@@ -29,7 +29,9 @@ class Settings(BaseSettings):
     def validate_jwt_secret(cls, value: SecretStr) -> SecretStr:
         secret = value.get_secret_value()
         if len(secret) < 32:
-            raise ValueError("JWT_SECRET must be at least 32 characters; generate one with `secrets.token_urlsafe(32)`")
+            raise ValueError(
+                "JWT_SECRET must be at least 32 characters; generate one with `secrets.token_urlsafe(32)`"
+            )
         return value
 
 
