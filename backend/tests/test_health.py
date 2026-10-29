@@ -5,6 +5,7 @@ from lanterne.main import app
 
 client = TestClient(app)
 
+
 def test_health():
     res = client.get("/api/health")
     assert res.status_code == status.HTTP_200_OK
