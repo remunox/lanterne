@@ -41,7 +41,6 @@ ignore = ["E501"]
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
-skip-magic-trailing_come = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
